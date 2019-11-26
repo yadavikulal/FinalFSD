@@ -1,0 +1,27 @@
+
+<body class="bg">
+<button id="openModal" #openModal [hidden]="true" data-controls-modal="#login-modal" data-backdrop="static" data-keyboard="false" 
+data-toggle="modal" data-target="#citymodal" ></button>
+
+<div class="modal fade " id="citymodal" role="dialog">
+    <div class="modal-dialog ">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+     	 
+        <div class="modal-body ">
+          <div style="text-align:center; background-color:lightskyblue; border-radius: 10px"><br>
+            <h3>I'm Looking to Rent in</h3><br></div>
+          
+            <form method="get" action="homepage">
+            <input routerLink="homepage/bangalore" data-dismiss="modal" type="image" src="https://cdn.iconscout.com/icon/free/png-256/assembly-1-119693.png" alt="Submit" width="150" height="150">
+            <input routerLink="homepage/hyderabad" data-dismiss="modal" type="image" src="https://cdn.iconscout.com/icon/free/png-512/charminar-1-119696.png" alt="Submit" width="150" height="150">
+            <input routerLink="homepage/pune" data-dismiss="modal" type="image" src="https://cdn.iconscout.com/icon/free/png-256/surat-155248.png" alt="Submit" width="150" height="150">
+            </form>
+         <div>&emsp;&nbsp;&emsp;Bangalore&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;Hyderabad &emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&nbsp;Pune</div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  </body>

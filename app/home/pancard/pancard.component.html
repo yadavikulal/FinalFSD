@@ -1,0 +1,87 @@
+<div class="container">
+<div class="row">
+        <div class="col-2">
+                <body id="card_body" style=" margin: 30px; ">
+                <div class="card " style="width: 50rem; height: 40rem; ">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item active">
+                                <br><br>
+                                <img src="assets/profile.jpg " height="15 " width="15 "style=" margin-left: 15px;">ACCOUNT SETTING
+                                <a [routerLink]="['/home/profile/']" class="nav-link"style=" margin-left: 30px;"> Profile Information</a>
+                                <a [routerLink]="['/home/address/']" class="nav-link"style=" margin-left: 30px;">Manage Address</a>
+                                <a [routerLink]="['/home/pancard/']" class="nav-link"style=" margin-left: 30px;">Pancard Information</a>
+                                <br>
+                            </li>
+                        </ul>
+                        <br>
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item active">
+                                <img src="assets/orders.jpg" height="15 " width="15 "style=" margin-left: 15px;">MY ORDER
+                                <a [routerLink]="['/home/order/']" class="nav-link"style=" margin-left: 30px;"> Orders</a>
+                                <br>
+                            </li>
+                        </ul>
+                       <br>
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item active">
+                                <img src="assets/payment.jpg" height="15 " width="15 "style=" margin-left: 15px;">PAYMENT
+                                <a [routerLink]="['/home/payment/']" class="nav-link"style=" margin-left: 30px;">Saved drafts</a>
+                                <br>
+                            </li>
+                        </ul>
+                       <br>
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item active">
+                                <img src="assets/rewards.jpg" height="15 " width="15 "style=" margin-left: 15px;">REWARDS
+                                <a [routerLink]="['/home/reward/']" class="nav-link"style=" margin-left: 30px;">Rewards</a>
+                                <br>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item active">
+                                <img src="assets/notification.jpg" height="15 " width="15 "style=" margin-left: 15px;">NOTIFICATION
+                                <a [routerLink]="['/home/notification/']" class="nav-link"style=" margin-left: 30px;">All Notification</a>
+                            </li>
+                        </ul>
+                       
+
+                    </div>
+                    </body>
+                </div>
+            <div class="col-2">
+                    <body id="card_body" style=" margin: 30px; ">  
+                    <div class="card " style="width: 50rem; height: 40rem; ">
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-auto">
+<br><br>
+                                <div class="row">
+                                    <h3>PANCARD INFORMATION</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="card-body ">
+                                <div class="row">
+                                        <div class="form-row"style=" margin-left: 30px;">
+                                
+                            <input type="text" class="form-control" placeholder="Pancard number.." />
+                        <br><br></div></div><br>
+                        <div class="row">
+                        <div class="form-row"style=" margin-left: 30px;">
+                            <input type="text" class="form-control" placeholder="Full name.." />
+                        <br><br>
+                        </div>
+                        </div><br>
+                        <input type="checkbox">I do hereby declare that PAN furnished/stated above is correct and belongs to me. I further declare that I shall solely be held responsible for
+                            the consequences, in case of any false PAN declaration.
+                            <div class="row justify-content-md-center">
+                            <div class="form-group">
+                                <br><br>
+                                <input type="button" class="btn btn-primary" value="SAVE" onclick="save()" />
+                            </div></div>
+                        </div>
+                    </div>
+                    </body>
+                </div>
+                </div>
+            </div>

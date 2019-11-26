@@ -1,0 +1,26 @@
+.images{
+    display:inline-block;
+    width:250px;
+    height:200px;
+    overflow:hidden;
+    vertical-align:top
+}
+
+.pics{
+    width:150px;
+    height:170px;
+    overflow:hidden;
+}
+
+.pics:hover{
+    transform: scale(1.2);
+}
+.search:hover{
+    transform:scale(1.2);
+}
+
+.btn:hover{
+    transform: scale(1.2);
+    color:royalblue;
+}
+

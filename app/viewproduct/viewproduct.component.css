@@ -1,0 +1,24 @@
+
+
+* {box-sizing: border-box;}
+
+
+
+.item {
+    width: 120px;
+    min-height: 120px;
+    max-height: auto;
+    float: left;
+    margin: 3px;
+    padding: 3px;
+    background-repeat:no-repeat;
+    background-size:contain;
+}
+::ng-deep .ngxImageZoomContainer > img{
+    max-height: 450px!important;
+    }
+
+    .btn:hover{
+        transform: scale(1.2);
+        color:royalblue;
+    }

@@ -1,0 +1,180 @@
+<app-navbar></app-navbar>
+<div style=" text-align: center; position: relative;" class="textImgHover">
+<div class="card border-primary mb-3 shadow-lg  bg-white rounded" style="top:150px; display: inline-block; position:absolute ">
+        <div class="card-header " style="background-color: turquoise"><h5>Please provide any of the identification</h5></div>
+        <div class="card-body text-primary">
+                <div class="input-group mb-3" style=" display: inline-block">
+                        <div style=" display: inline-block">
+                                <select class="form-control" id="promocode" name="promo code" id="idtype">  
+                                  <option value="">--select ID type--</option>
+                                  <option value="A">Aadhar Card</option>
+                                  <option value="P">PAN Card</option>
+                                  <option value="D">Driving Liscence</option>
+                                  <option Value="V">Voter ID</option>
+                                </select>
+                              </div>
+                        <input id="idnum" style="width: 300px; display: inline-block" type="text" class="form-control" aria-label="Text input with dropdown button"
+                         placeholder="--Enter ID Card number--" >
+                      </div>
+          <p class="card-text">The provided identity proof must be shown at the time of delivery.</p>
+          <p class="card-text"><button id="submit" (click)="pay()" class="btn btn-success" >Submit</button></p>
+          
+        </div>
+        
+      </div>
+      <div style="left: 40%; display:inline-block; position:absolute;">
+            <div class="card text-center mb-3 shadow-lg  bg-white rounded" style="width: 20rem; display:inline-block; background-color: turquoise">
+                    <div class="card-body">
+                      <div style="display: inline-block" >
+                            <p class="card-text"><button (click)="portal()" type="submit" style="width:250px" class="btn btn-warning" id ="paybtn" disabled>Go to Payment Portal</button></p>
+                            <div class="card-text"  *ngIf="active=='active'; else inactive"><button data-toggle="modal" data-target="#walletmodal" style="width:250px" class="btn btn-warning" id ="walletbtn" disabled>Pay by Rentastic Wallet</button></div>
+                            <ng-template #inactive>
+                                <button data-toggle="modal" data-target="#inactivemodal" style="width:250px" class="btn btn-warning" id ="walletbtn" disabled>Pay by Rentastic Wallet</button>
+                            </ng-template>
+                        </div>
+                    </div>
+                  </div>
+        </div>
+      <img src="https://www.shareicon.net/download/2017/01/06/868314_identity_512x512.png" alt="" srcset=""
+      style="position:relative ; z-index: -1; display: inline-block">
+      <div style="left:40%; top:40%; display:inline-block; position:absolute;">
+            <span id="spinner">
+                    <div class="spinner-grow text-primary" role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div>
+                          <div class="spinner-grow text-secondary" role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div>
+                          <div class="spinner-grow text-success" role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div>
+                          <div class="spinner-grow text-danger" role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div>
+                          <div class="spinner-grow text-warning" role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div>
+                          <div class="spinner-grow text-info" role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div>
+                          <div class="spinner-grow text-light" role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div>
+                          <div class="spinner-grow text-dark" role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div>
+                        </span>
+      </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="walletmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header " style="background-color: rgb(30, 173, 157)">
+              <h3 class="modal-title" id="exampleModalLongTitle"  style="-webkit-text-fill-color: white">
+            <img src="https://images.vexels.com/media/users/3/137088/isolated/preview/53f26986961b6a58b752e6ce51b55adc-flat-wallet-circle-icon-by-vexels.png"
+             alt="" style="width:100px">
+                Rentastic Wallet 
+            </h3>
+              <button type="button" class="close"  data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" style="-webkit-text-fill-color: white">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="text-align: right">
+                <span><h5>Available ballance:&nbsp;&emsp;₹<span>{{wallet}}</span></h5> </span>
+                <span><h5>- &nbsp;Billing amount:&nbsp;&emsp;₹<span>{{amount}}</span></h5> </span>
+                <h5>---------------------------------------------</h5>
+                 <span><h5>Wallet ballance after payment:&nbsp;&emsp;₹<span>{{wallet-amount}}</span></h5></span>
+                <span></span>
+            
+            </div>
+            <div class="modal-footer" style="background-color: turquoise">
+                
+              <button (click)="transaction()" data-dismiss="modal" type="button"class="btn pay" style="background-color: rgb(0, 126, 52); -webkit-text-fill-color: white; font-style: oblique">Pay&nbsp;&emsp;<i class="fa fa-money"></i></button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+<button id="openModal" #openModal [hidden]="true" data-controls-modal="#login-modal" 
+data-toggle="modal" data-target="#successmodal"  ></button>
+
+<div class="modal fade" id="successmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header " style="background-color: rgb(16, 204, 16)">
+              <h3 class="modal-title" id="exampleModalLongTitle"  style="-webkit-text-fill-color:black">
+               Payment Successfull!!
+            </h3>
+              <button routerLink="" type="button" class="close"  data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" style="-webkit-text-fill-color: white">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="text-align: center">
+               <img src="https://securionpay.com/wp-content/uploads/2016/10/icn-completed-mobile.svg" alt="Payment Successfull" srcset="">
+            
+            </div>
+            <div class="modal-footer" style="background-color: turquoise">
+             </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade"  id="inactivemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document" style="width:300px;">
+              <div class="modal-content">
+                <div class="modal-header " style="background-color: rgb(255, 203, 30)">
+                  <h3 class="modal-title" id="exampleModalLongTitle"  style="-webkit-text-fill-color:black">
+                   Insufficient Wallet Ballance !
+                </h3>
+                  <button type="button" class="close"  data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="-webkit-text-fill-color: black">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body" style="text-align: center">
+                   <img style=" width:50px;"src="http://cdn.onlinewebfonts.com/svg/img_460888.png" alt="insufficient ballance" srcset="">
+                    <h6><br>Kindly recharge your wallet now to proceed</h6>
+                </div>
+                <div class="modal-footer" style="background-color: turquoise">
+                 </div>
+              </div>
+            </div>
+          </div>
+
+            
+<div class="col-md-4">
+        <form ngNoForm action="https://test.payu.in/_payment" name="payuform" method="POST" target="payment_popup" onsubmit="window.open('about:blank','payment_popup','width=1110,height=700');">
+            <div class="form-group">
+                <!-- <label for="productInfo">Product Name:</label> -->
+                <input type="text" class="form-control" id="productInfo" name="productinfo" hidden [(ngModel)]="payuform.productinfo" >
+            </div>
+            <div class="form-group">
+                <!-- <label for="firstname">Name:</label> -->
+                <input type="text" class="form-control" id="firstname" name="firstname" hidden [(ngModel)]="payuform.firstname" >
+            </div>
+            <div class="form-group">
+                <!-- <label for="email">Email:</label> -->
+                <input type="email" class="form-control" id="email" name="email" hidden [(ngModel)]="payuform.email">
+            </div>
+            <div class="form-group">
+                <!-- <label for="email">Phone:</label> -->
+                <input type="number" class="form-control" id="phone" name="phone" hidden [(ngModel)]="payuform.phone" >
+            </div>
+            <div class="form-group">
+                <!-- <label for="amount">Amount:</label> -->
+                <input type="number" class="form-control" id="amount" name="amount" hidden [(ngModel)]="payuform.amount">
+            </div>
+            <textarea name="surl" id="surl" ng-model="surl" rows="2" cols="2" hidden [(ngModel)]="payuform.surl"></textarea>
+            <textarea name="furl" id="furl" ng-model="furl" rows="2" cols="2" hidden [(ngModel)]="payuform.furl"></textarea>
+            <textarea name="key" id="key" ng-model="key" rows="2" cols="2" hidden [(ngModel)]="payuform.key"></textarea>
+            <textarea name="hash" id="hash" ng-model="hash" rows="2" cols="2" hidden [(ngModel)]="payuform.hash"></textarea>
+            <textarea name="txnid" id="txnid" ng-model="txnid" rows="2" cols="2" hidden [(ngModel)]="payuform.txnid"></textarea>
+            <textarea name="service_provider" id="service_provider" rows="2" hidden cols="2" ></textarea>
+            
+            <button id="submitbtn" #submitbtn [hidden]="true"  type="submit" class="btn btn-danger">Submit</button>
+        </form>
+    </div>

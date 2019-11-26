@@ -1,0 +1,99 @@
+<div style="text-align: center; background-image: url(https://beanstalkwebsolutions.com/blog/wp-content/uploads/2016/08/ways-your-website-can-hurt-sales.jpg)" >
+  <div *ngIf="error">
+      <div class="alert alert-danger">
+          <strong style="color: black; font-size: 20px;">{{error}}</strong>
+      </div>
+  </div>
+  
+  <div class="signup-form " style="width: 600px; display:inline-block">
+  
+      <form [formGroup]='signupform' (ngSubmit)="postData(signupform)" class="shadow-lg bg-black" style="background-color: white"> 
+          <h2 style="-webkit-text-fill-color: black;">Register</h2>
+          <p class="hint-text">Create your account. It's free and only takes a minute.</p>
+          <div class="form-group" >
+  
+              <div class="row">
+                  <div class="col-6"><input type="text" class="form-control" formControlName="fname" placeholder="First Name"></div>
+                  <div class="col-6"><input type="text" class="form-control" formControlName="lname" placeholder="Last Name"></div>
+              </div>
+          </div>
+          <div class="form-group">
+              <input type="email" class="form-control" formControlName="email" placeholder="Email">
+          </div>
+          <div class="form-group">
+              <input type="password" class="form-control" formControlName="password" placeholder="Password">
+              <div>password length must be greater than 6.</div>
+          </div>
+          <div class="form-group">
+              <input type="password" class="form-control" formControlName="confirmPass" placeholder="Confirm Password">
+          </div>
+          <div class="form-group">
+              <input type="text" class="form-control" formControlName="phonenumber" placeholder="Phone Number">
+          </div>
+          <div class="form-group">
+              <input type="text" class="form-control" formControlName="address" placeholder="Address">
+          </div>
+          <!-- Group of default radios - option 1 -->
+          <div >
+                  <label class="radio-inline">
+                    <input type="radio" value = "male" id="gender" name="gender" formControlName="gender" >
+                    Male
+                  </label>
+                  <label class="radio-inline">&nbsp;
+                          <input type="radio" value = "female"  id="gender"  name="gender" formControlName="gender" >
+                          Female
+                  </label>
+              </div>
+          <div class="form-group">
+              <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+          </div>
+          <div class="form-group">
+              <button type="submit" (click)="postData(signupform)" class="btn btn-success btn-lg btn-block" [disabled]='!signupform.valid' >Register Now</button>
+          </div>
+          <div class="text-center">Already have an account? <a href="#" data-toggle="modal" data-target="#LoginModal">Sign in</a></div>
+      </form>
+  
+      
+  
+      <!-- Login Modal -->
+      <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: rgb(10, 37, 34)">
+          <h5 class="modal-title" id="exampleModalLabel" style="-webkit-text-fill-color: white">Login</h5>
+          <button style="-webkit-text-fill-color: white" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-login></app-login>
+        </div>
+        <div class="modal-footer" style="background-color: turquoise">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+      
+      <button id="openModal" #openModal [hidden]="true" data-controls-modal="#login-modal"
+      data-toggle="modal" data-target="#admodal" ></button>
+      
+    <!-- Ad Modal -->
+    <div class="modal fade" id="admodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document" style="border-radius: 50px; width:300px">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: rgb(241, 241, 35) ">
+            <h5 class="modal-title" id="exampleModalLabel"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="background-color:crimson ;border:none" >
+            <h3 style="-webkit-text-fill-color:whitesmoke">Yayy!!!</h3><h3 style="-webkit-text-fill-color: whitesmoke"> Get ₹ 1000/-</h3><h5>instantaneously on your Rentastic Wallet on Signup !!</h5>
+          </div>
+          <div class="modal-footer" style="background-color: rgb(255, 136, 0) ">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

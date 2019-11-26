@@ -1,0 +1,14 @@
+<!-- login modal -->
+<form >
+    <div class="form-group">
+        <input type="email" placeholder="Email" class="form-control" [(ngModel)]="username" name="username">
+    </div>
+    <div class="form-group">
+        <input type="password" placeholder="password" class="form-control" [(ngModel)]="password" name="password">
+    </div>
+    <div class="checkbox">
+            <button type="submit" (click)="login()" class="btn btn-success" style="width:300px"  data-dismiss="modal">Login</button>
+
+    </div>
+</form>
+<a href='/fp'>Forgot password?</a>
