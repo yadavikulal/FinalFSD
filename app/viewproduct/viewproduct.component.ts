@@ -26,9 +26,9 @@ cartlist:any;
      }
 
   ngOnInit() {
-    this.cid =localStorage.getItem('token');
+    this.cid =localStorage.getItem('id');
     if(this.cid!=undefined){ 
-    this.urlnew = `http://b8java18.iiht.tech:3000/findcustomer/`+this.cid;
+    this.urlnew = 'http://b8java28.iiht.tech:3000/findcustomer/'+this.cid;
     fetch(this.urlnew)
     .then(res=>res.json())
     .then(data=>{
@@ -39,7 +39,7 @@ cartlist:any;
    this.username='noLoggedInUser'
   }
 
-    let url= "http://b8java18.iiht.tech:3000/showproductbyid?pid="+ this.pid;
+    let url= "http://b8java28.iiht.tech:3000/showproductbyid/"+ this.pid;
       fetch(url,{
         method:"GET",
         headers:{
@@ -55,9 +55,9 @@ cartlist:any;
         this.myThumbnail=data[0].productimage;
       })
 
+ 
 
-
-      let url3="http://b8java18.iiht.tech:3000/viewcart?cid="+this.cid;
+      let url3="http://b8java28.iiht.tech:3000/viewcart?cid="+this.cid;
       fetch(url3,{
         method:"GET",
         headers:{
@@ -78,7 +78,7 @@ cartlist:any;
 
 
 
-      let url2= "http://b8java18.iiht.tech:3000/showallproduct?city="+this.city;
+      let url2= "http://b8java28.iiht.tech:3000/showallproduct?city="+this.city;
     fetch(url2,{
       method:"GET",
       headers:{
@@ -110,7 +110,7 @@ cartlist:any;
       }
     }
     if(this.cid!==undefined && buy=="yes"){
-    let addurl="http://b8java18.iiht.tech:3000/mycart/"+pid+"/"+this.cid;
+    let addurl="http://b8java28.iiht.tech:3000/mycart/"+pid+"/"+this.cid;
     fetch(addurl,{
       method:"GET",
       headers:{
@@ -137,3 +137,5 @@ logout(){
 }
 
 }
+
+

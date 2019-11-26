@@ -41,9 +41,9 @@ cart:string;
       console.log(data)
     })
 
-    this.cid =localStorage.getItem('token');
+    this.cid =localStorage.getItem('id');
     if(this.cid!=undefined){ 
-    this.urlnew = 'http://b8java18.iiht.tech:3000/findcustomer/'+this.cid;
+    this.urlnew = 'http://b8java18.iiht.tech:3000/findcustomerid/'+this.cid;
     fetch(this.urlnew)
     .then(res=>res.json())
     .then(data=>{

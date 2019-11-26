@@ -7,9 +7,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav ">
-            <li class="nav-item ">
-                    <img style="width:150px " src="https://github.com/demanda1/Project/blob/master/images/newlogo3.png?raw=true">
-            </li>
+            
       <li>&emsp;&nbsp;</li>
    <!-- Search form -->
       </ul>
@@ -38,7 +36,7 @@
     </a></div><i class="fa fa-sign-in text-grey fa-xs " style="color:lightgray;" aria-hidden="true"></i>
 
     <ng-template #helloUser>
-            <a href='profile' class="btn"style="text-decoration:none"><h6 style="color:white">&nbsp;{{username}}&nbsp;</h6></a>
+            <a href='profile' class="btn"style="text-decoration:none"><h6 style="color:white">&nbsp;My Profile&nbsp;</h6></a>
             <a class="btn" (click)=logout() style="text-decoration:none"><h6 style="color:white">&nbsp;logout&nbsp;</h6></a>
         </ng-template>
 
@@ -93,13 +91,14 @@
         <div class="card  shadow p-3 mb-5 bg-white rounded" >
             <div *ngFor="let object of List" class="card-header bg-dark" >
               <h2 style="-webkit-text-fill-color: cornsilk">{{object.productname}}</h2>
+
             </div>
             <cite title="Source Title" Style=" font-size:13px; color:royalblue">
-                    <br>&nbsp;<i class="fa fa-star"></i>Rentastic Verified Product</cite>
+                    <br>&nbsp;<i class="fa fa-star"></i>Verified Product</cite>
             <div   class="card-body img-magnifier-container item" style="display:inline-block;" >
                 
                 <ngx-image-zoom
-                [thumbImage]=myThumbnail
+                [thumbImage]="myThumbnail"
                 [fullImage]="myFulresImage"
                 [magnification]="1"
                 [enableScrollZoom]="true"
@@ -201,3 +200,7 @@
             </div>
         </div>
     </div>
+
+
+
+

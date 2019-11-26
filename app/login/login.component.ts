@@ -53,7 +53,7 @@ ngOnInit() {
     else{  //incase creadentials are valid 
       console.log("deepak")
       console.log(data);
-      
+
     localStorage.setItem('token',data)
     localStorage.setItem('city',this.city);
     this.cid=localStorage.getItem('token');
@@ -61,6 +61,8 @@ ngOnInit() {
     fetch(this.url)
     .then(res=>res.json())
     .then(data=>{
+      this.userId = data[0].customerid;
+      localStorage.setItem('id',this.userId);
       console.log(data)
       console.log("hello")
       this.message=data[0];

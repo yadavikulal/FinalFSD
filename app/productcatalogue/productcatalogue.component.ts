@@ -28,7 +28,7 @@ export class ProductcatalogueComponent implements OnInit {
   ngOnInit() {
     this.loggedInUser();
     this.city=localStorage.getItem('city');
-    let url= "http://b8java18.iiht.tech:3000/showproduct?category="+this.category+"&city="+this.city;
+    let url= "http://b8java28.iiht.tech:3000/showproduct?category="+this.category+"&city="+this.city;
     fetch(url,{
       method:"GET",
       headers:{
@@ -43,7 +43,7 @@ export class ProductcatalogueComponent implements OnInit {
     })
 
     this.cid=localStorage.getItem('token');
-    let url3="http://b8java18.iiht.tech:3000/viewcart?cid="+this.cid;
+    let url3="http://b8java28.iiht.tech:3000/viewcart?cid="+this.cid;
   fetch(url3,{
     method:"GET",
     headers:{
@@ -66,7 +66,7 @@ export class ProductcatalogueComponent implements OnInit {
 
     handleClick(city:any){
       localStorage.setItem("city",city);
-      let url= "http://b8java18.iiht.tech:3000/showproduct?category="+this.category+"&city="+city;
+      let url= "http://b8java28.iiht.tech:3000/showproduct?category="+this.category+"&city="+city;
       fetch(url,{
         method:"GET",
         headers:{
@@ -82,7 +82,7 @@ export class ProductcatalogueComponent implements OnInit {
     }
     handleClick2(category:any){
       localStorage.setItem("city",this.city);
-      let url= "http://b8java18.iiht.tech:3000/showproduct?category="+category+"&city="+this.city;
+      let url= "http://b8java28.iiht.tech:3000/showproduct?category="+category+"&city="+this.city;
       fetch(url,{
         method:"GET",
         headers:{
@@ -100,7 +100,7 @@ export class ProductcatalogueComponent implements OnInit {
     loggedInUser(){
       this.userid =localStorage.getItem('token');
       if(this.userid!=undefined){ 
-      this._url = `http://b8java18.iiht.tech:3000/findcustomer/`+this.userid;
+      this._url = 'http://b8java28.iiht.tech:3000/findcustomer?cid='+this.userid;
       fetch(this._url)
       .then(res=>res.json())
       .then(data=>{
@@ -116,6 +116,7 @@ export class ProductcatalogueComponent implements OnInit {
     console.log("bought the product",pid);
     this.cid=localStorage.getItem('token');
     let buy="yes";
+    //for(let i of Object.keys(this.cartlist)){
     for(let i of this.cartlist){
       if(i.productid==pid){
         console.log("no")
@@ -123,14 +124,14 @@ export class ProductcatalogueComponent implements OnInit {
       }
     }
     if(this.cid!==undefined && buy=="yes"){
-    let addurl="http://b8java18.iiht.tech:3000/mycart/"+pid+"/"+this.cid;
+    let addurl="http://b8java28.iiht.tech:3000/mycart/"+pid+"/"+this.cid;
     fetch(addurl,{
       method:"GET",
       headers:{
         "content-type":"application/json"
       }
     })
-    .then(res=>res.json())
+    .then(res=>res.text())
     .then(data=>{
       console.log(data);
       if(data!=null){

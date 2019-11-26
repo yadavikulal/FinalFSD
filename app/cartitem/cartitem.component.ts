@@ -22,9 +22,9 @@ plusval2:any;
   ngOnInit() {
     this.quantity=1;
     this.period=1;
-    this.cid=localStorage.getItem('token');
+    this.cid=localStorage.getItem('id');
     
-    let url3="http://b8java18.iiht.tech:3000/viewcart?cid="+this.cid;
+    let url3="http://b8java18.iiht.tech:3000/viewcart/"+this.cid;
     fetch(url3,{
       method:"GET",
       headers:{
