@@ -17,6 +17,9 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { CartverifyComponent } from './cartverify/cartverify.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { HttpClientModule } from '@angular/common/http';
+import { Advertise1Component } from './advertise1/advertise1.component';
+import { Advertise2Component } from './advertise2/advertise2.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { HttpClientModule } from '@angular/common/http';
    RoutingComponent,
    CheckoutComponent,
    CartverifyComponent,
-   ForgotpasswordComponent
+   ForgotpasswordComponent,
+   Advertise1Component,
+   Advertise2Component,
+   DetailsComponent
   ],
   imports: [
     BrowserModule,

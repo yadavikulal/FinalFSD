@@ -24,9 +24,9 @@ export class NavBarComponent implements OnInit {
   }
 
   loggedInUser(){
-    this.userid =localStorage.getItem('token');
+    this.userid =localStorage.getItem('id');
     if(this.userid!=undefined){ 
-    this._url = `http://b8java18.iiht.tech:3000/findcustomer/`+this.userid;
+    this._url = `http://b8java18.iiht.tech:3000/findcustomerid/`+this.userid;
     fetch(this._url)
     .then(res=>res.json())
     .then(data=>{

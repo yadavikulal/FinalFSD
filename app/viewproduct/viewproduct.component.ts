@@ -28,7 +28,7 @@ cartlist:any;
   ngOnInit() {
     this.cid =localStorage.getItem('id');
     if(this.cid!=undefined){ 
-    this.urlnew = 'http://b8java28.iiht.tech:3000/findcustomer/'+this.cid;
+    this.urlnew = 'http://b8java18.iiht.tech:3000/findcustomerid/'+this.cid;
     fetch(this.urlnew)
     .then(res=>res.json())
     .then(data=>{
@@ -39,25 +39,28 @@ cartlist:any;
    this.username='noLoggedInUser'
   }
 
-    let url= "http://b8java28.iiht.tech:3000/showproductbyid/"+ this.pid;
+    let url= "http://b8java18.iiht.tech:3000/showproductbyid/"+ this.pid;
       fetch(url,{
         method:"GET",
-        headers:{
-          "content-type":"application/json"
-        }
+        // headers:{
+        //   "content-type":"application/json"
+        // }
       })
       .then(res => res.json())
       .then(data=> 
         {
           console.log(data)
         this.List=data;
-        this.myFullresImage=data[0].productimage;
-        this.myThumbnail=data[0].productimage;
+        
+        this.myFullresImage="https://github.com/demanda1/Project/blob/master/images/mahindra-scorpio1.png?raw=true"
+        // this.myFullresImage=data[0].productimage;
+        // this.myThumbnail=data[0].productimage;
+        this.myThumbnail="https://github.com/demanda1/Project/blob/master/images/mahindra-scorpio1.png?raw=true"
       })
 
  
 
-      let url3="http://b8java28.iiht.tech:3000/viewcart?cid="+this.cid;
+      let url3="http://b8java18.iiht.tech:3000/viewcart/"+this.cid;
       fetch(url3,{
         method:"GET",
         headers:{
@@ -68,17 +71,18 @@ cartlist:any;
       .then(data=>{
         console.log(data);
         this.cartlist=data;
-        if(data[0]!=null){
+        if(data!=null){
           this.cart='items';
         }
         else{
           this.cart='noitems';
         }
+        console.log(this.cartlist);
       })
 
 
 
-      let url2= "http://b8java28.iiht.tech:3000/showallproduct?city="+this.city;
+      let url2= "http://b8java18.iiht.tech:3000/showallproduct?city="+this.city;
     fetch(url2,{
       method:"GET",
       headers:{
@@ -93,35 +97,33 @@ cartlist:any;
     })
 
 
-
-     
-
   }
-  
 
   addtocart(pid:any){
     console.log("bought the product",pid);
-    this.cid=localStorage.getItem('token');
+    this.cid=localStorage.getItem('id');
     let buy="yes";
-    for(let i of this.cartlist){
-      if(i.productid==pid){
+    for(let i in this.cartlist){
+      if(this.cartlist[i].productid==pid){
         console.log("no")
         buy="no";
+        
       }
     }
     if(this.cid!==undefined && buy=="yes"){
-    let addurl="http://b8java28.iiht.tech:3000/mycart/"+pid+"/"+this.cid;
+    let addurl="http://b8java18.iiht.tech:3000/mycart/"+pid+"/"+this.cid;
     fetch(addurl,{
       method:"GET",
       headers:{
         "content-type":"application/json"
       }
     })
-    .then(res=>res.json())
+    .then(res=>res.text())
     .then(data=>{
       console.log(data);
       if(data!=null){
         this.openModal.nativeElement.click();
+        
       }
     })
   }
@@ -133,6 +135,7 @@ cartlist:any;
 
 logout(){
   localStorage.removeItem('token');
+  localStorage.removeItem('id');
   window.location.reload();
 }
 

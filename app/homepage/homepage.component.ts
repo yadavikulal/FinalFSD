@@ -55,7 +55,7 @@ cart:string;
    this.username='noLoggedInUser'
   }
 
-  let url3="http://b8java18.iiht.tech:3000/viewcart?cid="+this.cid;
+  let url3="http://b8java18.iiht.tech:3000/viewcart/"+this.cid;
   fetch(url3,{
     method:"GET",
     headers:{
@@ -92,6 +92,7 @@ cart:string;
 
     logout(){
       localStorage.removeItem('token');
+      localStorage.removeItem('id');
       window.location.reload();
     }
   

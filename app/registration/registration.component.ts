@@ -48,6 +48,7 @@ export class RegistrationComponent implements OnInit {
   }
   //before registering we are using the api to send the otp for email verification
   postData(signupform: any) {
+    alert("Successfully registered!")
 
     this._url = `http://b8java18.iiht.tech:3000/register`
 

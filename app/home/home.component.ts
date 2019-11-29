@@ -19,8 +19,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
     //localStorage.setItem('token', 'CtfssY');
-    this.cid=localStorage.getItem('token');
-    this.url=`http://b8java18.iiht.tech:3000/findcustomer/`+this.cid;
+    this.cid=localStorage.getItem('id');
+    this.url=`http://b8java18.iiht.tech:3000/findcustomerid/`+this.cid;
     fetch(this.url)
     .then(res=>res.text())
     .then(data=>{

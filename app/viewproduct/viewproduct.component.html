@@ -1,206 +1,222 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <nav class="navbar  navbar-expand-lg navbar-dark bg-dark">
-        <!-- Navbar content -->
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <!-- Navbar content -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav ">
-            
+
       <li>&emsp;&nbsp;</li>
-   <!-- Search form -->
-      </ul>
-      <i class="fa fa-map-marker fa-lg city" style="color:tomato" aria-hidden="true" data-controls-modal="#login-modal" data-backdrop="static" data-keyboard="false" 
-      data-toggle="modal" data-target="#citymodal"></i>
-      <h6 style="color:white">&nbsp;{{city}}&emsp;&nbsp;</h6>
-   <ul class="navbar-nav ">
-        <li class="nav-item">
-<form class="form-inline active-cyan-3 active-cyan-4 ">
-        <div class="input-group md-form form-sm form-2 pl-0">
-                <input class="form-control my-0 py-1 lime-border" type="text" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                  <span class="input-group-text lime lighten-2" id="basic-text1"><i class="fa fa-search text-grey"
-                      aria-hidden="true"></i></span>
-                </div>
-              </div>
-      </form>
+      <!-- Search form -->
+    </ul>
+    <i class="fa fa-map-marker fa-lg city" style="color:tomato" aria-hidden="true" data-controls-modal="#login-modal"
+      data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#citymodal"></i>
+    <h6 style="color:white">&nbsp;{{city}}&emsp;&nbsp;</h6>
+    <ul class="navbar-nav ">
+      <li class="nav-item">
+        <form class="form-inline active-cyan-3 active-cyan-4 ">
+          <div class="input-group md-form form-sm form-2 pl-0">
+            <input class="form-control my-0 py-1 lime-border" type="text" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+              <span class="input-group-text lime lighten-2" id="basic-text1"><i class="fa fa-search text-grey"
+                  aria-hidden="true"></i></span>
+            </div>
+          </div>
+        </form>
       </li>
     </ul>
 
   </div>
   <div style=" text-align:center ">
     <!-- Navbar content -->
-    <div style="display:inline-block" ><a class="btn" href="#"  style="color:white"><span class="fa fa-home text-grey fa-xs"></span> Home</a></div>
-    <div style="display:inline-block" ><a class="btn" *ngIf="username=='noLoggedInUser', else helloUser" data-toggle="modal" data-target="#LoginModal" style="text-decoration:none"><h6 style="color:white">&nbsp;Login&nbsp;</h6>
-    </a></div><i class="fa fa-sign-in text-grey fa-xs " style="color:lightgray;" aria-hidden="true"></i>
+    <div style="display:inline-block">
+        <a class="btn" href="#" style="color:white">
+            <h6 style="color:white">&nbsp;Home&nbsp;</h6>
+          </a></div><i class="fa fa-home text-grey fa-xs " style="color:lightgray;" aria-hidden="true"></i>
+          
+    <div style="display:inline-block"><a class="btn" *ngIf="username=='noLoggedInUser', else helloUser"
+        data-toggle="modal" data-target="#LoginModal" style="text-decoration:none">
+        <h6 style="color:white">&nbsp;Login&nbsp;</h6>
+      </a></div><i class="fa fa-sign-in text-grey fa-xs " style="color:lightgray;" aria-hidden="true"></i>
 
     <ng-template #helloUser>
-            <a href='profile' class="btn"style="text-decoration:none"><h6 style="color:white">&nbsp;My Profile&nbsp;</h6></a>
-            <a class="btn" (click)=logout() style="text-decoration:none"><h6 style="color:white">&nbsp;logout&nbsp;</h6></a>
-        </ng-template>
+      <a href='profile' class="btn" style="text-decoration:none">
+        <h6 style="color:white">&nbsp;{{username}}&nbsp;</h6>
+      </a>
+      <a class="btn" (click)=logout() style="text-decoration:none">
+        <h6 style="color:white">&nbsp;logout&nbsp;</h6>
+      </a>
+    </ng-template>
 
-        <div  style="display:inline-block"><a routerLink="/register" style="text-decoration:none"><h6 *ngIf="username=='noLoggedInUser'" style="color:white">&nbsp;&emsp;signup&nbsp;</h6>
-        </a></div><i class="fa fa-user-plus text-grey fa-xs " style="color:lightgray;" aria-hidden="true"></i>
+    <div style="display:inline-block"><a routerLink="/register" style="text-decoration:none">
+        <h6 *ngIf="username=='noLoggedInUser'" style="color:white">&nbsp;&emsp;signup&nbsp;</h6>
+      </a></div><i class="fa fa-user-plus text-grey fa-xs " style="color:lightgray;" aria-hidden="true"></i>
 
-    <div style="display:inline-block"><a routerLink="/cartpage" style="text-decoration:none" ><h6 *ngIf="cart=='items', else hellocart" style="color:greenyellow">&nbsp;&emsp;cart&nbsp;</h6>
-    </a></div><i class="fa fa-cart-plus text-grey fa-xs " style="color:lightgray;" aria-hidden="true"></i>
+    <div style="display:inline-block"><a routerLink="/cartpage" style="text-decoration:none">
+        <h6 *ngIf="cart=='items', else hellocart" style="color:greenyellow">&nbsp;&emsp;cart&nbsp;</h6>
+      </a></div><i class="fa fa-cart-plus text-grey fa-xs " style="color:lightgray;" aria-hidden="true"></i>
     <ng-template #hellocart>
-    <h6 style="color:white">&nbsp;&emsp;cart&nbsp;</h6>
-  </ng-template>
-   
-</div>
- </nav>
+      <h6 style="color:white">&nbsp;&emsp;cart&nbsp;</h6>
+    </ng-template>
+
+  </div>
+</nav>
 
 <script>
-        /* Execute the magnify function: */
-        magnify("myimage", 1);
+  /* Execute the magnify function: */
+  magnify("myimage", 1);
         /* Specify the id of the image, and the strength of the magnifier glass: */
-        </script>
+</script>
 
 
 <div class="container-fluid">
-    <div class="row content">
-      
-            <div class="col-sm-3 bg-dark" >
-                    <div class="card-header bg-dark" >
-                            <h4 style="-webkit-text-fill-color: cornsilk">You may also like</h4>
-                          </div>
-                    <div class="card" style="width: 15rem; background-color:turquoise" style="float:right">
-                            <div *ngFor="let object2 of List2" class="mx-5 card card text-center shadow-lg p-3 mb-5 bg-white rounded"
-                         style=" display:inline-block;border-color: turquoise; ">
-                       <div class="card-body images">
-                         <img src={{object2.productimage}} style="border: none" class="img-thumbnail pics" alt="Cinque Terre" >
-                       </div>
-                       <h5 class="card-title">{{object2.productname}}</h5>
-                         <a href="/viewproduct/{{city}}/{{object2.productid}}" class="btn btn-primary fa fa-search fa-lg search" style="border-radius: 50%"></a>
-                         <span>&nbsp;&emsp;&nbsp;</span>
-                         <span *ngIf="username=='noLoggedInUser', else helloUser"><a  data-toggle="modal" data-target="#LoginModal"  class="btn btn-success fa fa-cart-plus fa-lg search" style="border-radius:50%"></a></span>
-                 <ng-template #helloUser>
-                  <a class="btn"(click)=addtocart(object.productid) class="btn btn-success fa fa-cart-plus fa-lg search" style="border-radius:50%"  style="text-decoration:none"></a>
-              </ng-template>
-                         </div>
-                    </div>
-                    
-              </div>
+  <div class="row content">
+
+    <div class="col-sm-3 bg-dark">
+      <div class="card-header bg-dark">
+        <h4 style="-webkit-text-fill-color: cornsilk">You may also like</h4>
+      </div>
+      <div class="card" style="width: 15rem; background-color:turquoise" style="float:right">
+        <div *ngFor="let object2 of List2" class="mx-5 card card text-center shadow-lg p-3 mb-5 bg-white rounded"
+          style=" display:inline-block;border-color: turquoise; ">
+          <div class="card-body images">
+            <img src={{object2.productimage}} style="border: none" class="img-thumbnail pics" alt="Cinque Terre">
+          </div>
+          <h5 class="card-title">{{object2.productname}}</h5>
+          <a href="/viewproduct/{{city}}/{{object2.productid}}" class="btn btn-primary fa fa-search fa-lg search"
+            style="border-radius: 50%"></a>
+          <span>&nbsp;&emsp;&nbsp;</span>
+          <span *ngIf="username=='noLoggedInUser', else helloUser"><a data-toggle="modal" data-target="#LoginModal"
+              class="btn btn-success fa fa-cart-plus fa-lg search" style="border-radius:50%"></a></span>
+          <ng-template #helloUser>
+            <a class="btn" (click)=addtocart(object.productid) class="btn btn-success fa fa-cart-plus fa-lg search"
+              style="border-radius:50%" style="text-decoration:none"></a>
+          </ng-template>
+        </div>
+      </div>
+
+    </div>
 
 
 
-      <div class="col-sm-6">
-        
-        <div class="card  shadow p-3 mb-5 bg-white rounded" >
-            <div *ngFor="let object of List" class="card-header bg-dark" >
+
+
+
+    <div class="col-sm-6">
+
+      <div class="card  shadow p-3 mb-5 bg-white rounded">
+        <div *ngFor="let object of List" class="col-sm-3 sidenav">
+          <div class="card" style="width: 44rem; background-color:silver">
+            <div *ngFor="let object of List" class="card-header bg-dark">
+
               <h2 style="-webkit-text-fill-color: cornsilk">{{object.productname}}</h2>
 
             </div>
-            <cite title="Source Title" Style=" font-size:13px; color:royalblue">
-                    <br>&nbsp;<i class="fa fa-star"></i>Verified Product</cite>
-            <div   class="card-body img-magnifier-container item" style="display:inline-block;" >
-                
-                <ngx-image-zoom
-                [thumbImage]="myThumbnail"
-                [fullImage]="myFulresImage"
-                [magnification]="1"
-                [enableScrollZoom]="true"
-                [enableLens]="true"
-                [lensWidth]="250"
-                [lensHeight]="250"
-            ></ngx-image-zoom>
-                <footer class="blockquote-footer">Hover to zoom </footer>
+            <div class="card-body">
+                <!--img src={{object.productimage}} style="border: none" class="img-thumbnail pics" alt="Cinque Terre">
+                <img [src]="object.productimage | json" -->
+
+              <h5 class="font-weight-bold mb-3">Description</h5>
+              <p class="mb-0"> {{object.productdescription}}</p>
+            </div>
+            <div class="well well-sm" style="margin:20px;opacity: inherit; border-color: green;border-style:double">get
+              extra <b> 10%off </b> on <b> HDFC </b>cards</div>
+            <div class="card-body">
+              <h5 class="font-weight-bold mb-3">Price : ₹ {{object.productprice}}/month</h5>
+              <h5 class="mb-0"></h5>
+
+            </div>
+
+            <span *ngIf="username=='noLoggedInUser', else helloUser">&nbsp;&emsp;<a data-toggle="modal"
+                data-target="#LoginModal" class="btn btn-success fa fa-cart-plus fa-lg search" value="Add to cart">Add
+                to
+                Cart</a></span>
+            <ng-template #helloUser>
+              <a class="btn" (click)=addtocart(object.productid) class="btn btn-success fa fa-cart-plus fa-lg search"
+                style="text-decoration:none">Add to cart</a>
+            </ng-template>
+            <div class="card-body">
+
             </div>
           </div>
-      </div>
-
-
-
-      <div *ngFor="let object of List" class="col-sm-3 sidenav">
-            <div class="card" style="width: 22rem; background-color:turquoise">
-                <div class="card-body">
-                  <h5 class="font-weight-bold mb-3">Description</h5>
-                  <p class="mb-0"> {{object.productdescription}}</p>
-                </div>
-                <div class="well well-sm" style="margin:20px;opacity: inherit; border-color: green;border-style:double">get extra <b> 10%off </b> on <b> HDFC </b>cards</div>
-                <div class="card-body">
-                        <h5 class="font-weight-bold mb-3">Price : ₹ {{object.productprice}}/month</h5>
-                        <h5 class="mb-0"></h5>
-                        
-                      </div>
-                    
-                    <span *ngIf="username=='noLoggedInUser', else helloUser">&nbsp;&emsp;<a  data-toggle="modal" data-target="#LoginModal"  class="btn btn-success fa fa-cart-plus fa-lg search"  value="Add to cart">Add to Cart</a></span>
-                    <ng-template #helloUser>
-                     <a class="btn"(click)=addtocart(object.productid)  class="btn btn-success fa fa-cart-plus fa-lg search"   style="text-decoration:none">Add to cart</a>
-                 </ng-template>
-                    <div class="card-body">
-
-                </div>
-              </div>
-          </div>
-
-
-</div>
-</div>
-  <footer class="container-fluid">
-    <p>Footer Text</p>
-  </footer>
-  
-  <button id="openModal" #openModal [hidden]="true" data-controls-modal="#login-modal" data-backdrop="static" data-keyboard="false" 
-    data-toggle="modal" data-target="#addtocart" ></button>
-
-    <div class="shadow-lg p-3 mb-5 bg-white rounded">
-      <!-- Modal -->
-      <div class="modal fade" id="addtocart" role="dialog">
-          <div class="modal-dialog modal-sm">
-              <div class="modal-content">
-                  <div class="modal-header" style="background-color: rgb(76, 207, 76)">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  </div>
-                  <div class="modal-body">
-                      <h5>Item added to your cart successfully </h5>
-                  </div>
-  
-              </div>
-          </div>
-      </div>
-  </div>
-
-  <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header" style="background-color: rgb(49, 175, 161)">
-            <h5 class="modal-title" id="exampleModalLabel" style="-webkit-text-fill-color: white">Login</h5>
-            <button style="-webkit-text-fill-color: white" type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <app-login></app-login>
-          </div>
-          <div class="modal-footer" style="background-color: turquoise">
-          </div>
         </div>
+        
       </div>
     </div>
-
-    <button id="closeModal" #closeModal [hidden]="true" data-controls-modal="#not-add"  
-    data-toggle="modal" data-target="#notadd" ></button>
-
-    <div class="shadow-lg p-3 mb-5 bg-white rounded">
-        <!-- Modal -->
-        <div class="modal fade" id="notadd" role="dialog">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content" >
-                    <div class="modal-header" style="background-color: rgb(231, 167, 48)">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <h5>Item is already present in your cart </h5>
-                    </div>
     
-                </div>
-            </div>
-        </div>
+    <div class="col-sm-3 sidenav">
+        <br/>
+        
+      <app-advertise1></app-advertise1>
+      <br/>
+      <br/>
+      <app-advertise2></app-advertise2>
     </div>
+  </div>
+</div>
+<footer class="container-fluid">
+  <p>Footer Text</p>
+</footer>
 
+<button id="openModal" #openModal [hidden]="true" data-controls-modal="#login-modal" data-backdrop="static"
+  data-keyboard="false" data-toggle="modal" data-target="#addtocart"></button>
 
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+  <!-- Modal -->
+  <div class="modal fade" id="addtocart" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: rgb(76, 207, 76)">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <h5>Item added to your cart successfully </h5>
+        </div>
 
+      </div>
+    </div>
+  </div>
+</div>
 
+<div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: rgb(49, 175, 161)">
+        <h5 class="modal-title" id="exampleModalLabel" style="-webkit-text-fill-color: white">Login</h5>
+        <button style="-webkit-text-fill-color: white" type="button" class="close" data-dismiss="modal"
+          aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-login></app-login>
+      </div>
+      <div class="modal-footer" style="background-color: turquoise">
+      </div>
+    </div>
+  </div>
+</div>
+
+<button id="closeModal" #closeModal [hidden]="true" data-controls-modal="#not-add" data-toggle="modal"
+  data-target="#notadd"></button>
+
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+  <!-- Modal -->
+  <div class="modal fade" id="notadd" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: rgb(231, 167, 48)">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <h5>Item is already present in your cart </h5>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

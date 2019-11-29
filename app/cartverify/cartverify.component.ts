@@ -43,8 +43,8 @@ export class CartverifyComponent implements OnInit {
     this.amount=+localStorage.getItem('amount');
     localStorage.removeItem('amount');
     ((<HTMLInputElement>document.getElementById("spinner")).hidden=true);
-    this.cid=localStorage.getItem('token');
-    let url=`http://b8java18.iiht.tech:3000/findcustomer/`+this.cid;
+    this.cid=localStorage.getItem('id');
+    let url=`http://b8java18.iiht.tech:3000/findcustomerid/`+this.cid;
     fetch(url)
     .then(res=>res.json())
     .then(data=>{
@@ -60,7 +60,7 @@ export class CartverifyComponent implements OnInit {
       }    
     })
 
-    let url3="http://b8java18.iiht.tech:3000/viewcart?cid="+this.cid;
+    let url3="http://b8java18.iiht.tech:3000/viewcart/"+this.cid;
      fetch(url3,{
       method:"GET",
       headers:{
