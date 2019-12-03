@@ -22,9 +22,9 @@ cart:any;
 
 
   loggedInUser(){
-    this.userid =localStorage.getItem('token');
+    this.userid =localStorage.getItem('id');
     if(this.userid!=undefined){ 
-    this._url = `http://b8java18.iiht.tech:3000/findcustomer/`+this.userid;
+    this._url = `http://b8java18.iiht.tech:3000/findcustomerid/`+this.userid;
     fetch(this._url)
     .then(res=>res.json())
     .then(data=>{
@@ -35,7 +35,7 @@ cart:any;
    this.username='noLoggedInUser'
   }
 
-  this.cid=localStorage.getItem('token');
+  this.cid=localStorage.getItem('id');
     let url3="http://b8java18.iiht.tech:3000/viewcart/"+this.cid;
   fetch(url3,{
     method:"GET",

@@ -114,6 +114,17 @@ export class ProductcatalogueComponent implements OnInit {
 
   addtocart(pid:any){
     console.log("bought the product",pid);
+
+    let products = [];
+    if(localStorage.getItem('products')){
+        products = JSON.parse(localStorage.getItem('products'));
+    }
+    products.push({'productId' : pid});
+    localStorage.setItem('products', JSON.stringify(products));
+
+
+
+
     this.cid=localStorage.getItem('id');
     let buy="yes";
     //for(let i of Object.keys(this.cartlist)){

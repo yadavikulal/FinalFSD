@@ -17,8 +17,8 @@ export class AddressComponent implements OnInit {
   constructor(private interactionService:InteractionService, private formbuilder:FormBuilder) { }
 
   ngOnInit() {
-    this.cid=localStorage.getItem('token');
-    this.url=`http://localhost:3000/findcustomer?cid=`+this.cid;
+    this.cid=localStorage.getItem('id');
+    this.url=`http://localhost:3000/findcustomerid/`+this.cid;
     fetch(this.url)
     .then(res=>res.json())
     .then(data=>{

@@ -11,6 +11,10 @@ export class CartitemComponent implements OnInit {
   pid: any
   List: any
   List2: any
+  List3: any
+  List4 = [];
+  List5 = [];
+  List6 = [];
   address: any;
   amount: any;
   data: number;
@@ -20,6 +24,7 @@ export class CartitemComponent implements OnInit {
   period: any;
   plusval2: any;
   productname: any;
+  finalAmount: any;
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -38,36 +43,22 @@ export class CartitemComponent implements OnInit {
       .then(data => {
         console.log(data);
         this.List = data;
-
+        console.log(this.List);
         setTimeout(function () {
           var sum = 0;
           for (let i of data) {
             let id = "subtotal" + i.productid;
-            this.pid = i.productid;
             console.log(id);
-            console.log(this.pid);
-
-            let url5 = `http://b8java18.iiht.tech:3000/showproductbyid/` + this.pid;
-            fetch(url5, {
-              method: "GET",
-              headers: {
-                "content-type": "application/json"
-              }
-            }).then(res => res.json())
-              .then(data => {
-                console.log(data);
-                this.List2 = data;
-                console.log(this.List2);
-                
-              })
-              console.log(this.List2);
-
             var p = +(<HTMLInputElement>document.getElementById(id)).innerText;
             sum = sum + p;
             (<HTMLOutputElement>document.getElementById('amount')).innerHTML = String(sum);
-            (<HTMLOutputElement>document.getElementById('finalamount')).innerHTML = String(sum + 50);
+            this.finalAmount=sum+50;
+            (<HTMLOutputElement>document.getElementById('finalamount')).innerHTML = String(this.finalAmount);
+            localStorage.setItem('finalAmount',this.finalAmount)
           }
+
         }, 1000)
+
 
       })
 
@@ -86,8 +77,44 @@ export class CartitemComponent implements OnInit {
 
     //let url5=`http://b8java18.iiht.tech:3000/showproductbyid/p1`;
 
+    this.List3 = JSON.parse(localStorage.getItem('products'));
+    console.log(this.List3);
+    for (var i of this.List3) {
+
+      this.pid = i.productId;
+      this.List5.push(this.pid);
+      console.log(this.List5);
+    }
+
+    ///////////////////////
+
+
+    for (var i of this.List5) {
+      console.log(i);
+      let url5 = `http://b8java18.iiht.tech:3000/showproductbyid/` + i
+      fetch(url5, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json"
+        }
+      }).then(res => res.json())
+        .then(data => {
+          //console.log(data);
+          this.List2 = data;
+          console.log(this.List2);
+
+          this.List4.push(this.List2);
+          console.log(this.List4);
+        })
+        
+    }
+    this.List6=this.List4;
+    console.log(this.List6);
+
 
   }
+
+
 
 
 

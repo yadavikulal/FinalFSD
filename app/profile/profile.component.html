@@ -1,59 +1,72 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <nav class="navbar  navbar-expand-lg navbar-dark bg-dark">
-        <!-- Navbar content -->
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav ">
-            
-      <li>&emsp;&nbsp;</li>
-   <!-- Search form -->
-      </ul>
-      <i class="fa fa-map-marker fa-lg city" style="color:tomato" aria-hidden="true" data-controls-modal="#login-modal" data-backdrop="static" data-keyboard="false" 
-      data-toggle="modal" data-target="#citymodal"></i>
-      <h6 style="color:white">&nbsp;{{city}}&emsp;&nbsp;</h6>
-   <ul class="navbar-nav ">
-        <li class="nav-item">
-<form class="form-inline active-cyan-3 active-cyan-4 ">
-        <div class="input-group md-form form-sm form-2 pl-0">
-                <input class="form-control my-0 py-1 lime-border" type="text" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                  <span class="input-group-text lime lighten-2" id="basic-text1"><i class="fa fa-search text-grey"
-                      aria-hidden="true"></i></span>
-                </div>
-              </div>
-      </form>
-      </li>
-    </ul>
-
-  </div>
-  <div style=" text-align:center ">
     <!-- Navbar content -->
-    <div style="display:inline-block" ><a class="btn" href="#"  style="color:white"><span class="fa fa-home text-grey fa-xs"></span> Home</a></div>
-    <div style="display:inline-block" ><a class="btn" *ngIf="username=='noLoggedInUser', else helloUser" data-toggle="modal" data-target="#LoginModal" style="text-decoration:none"><h6 style="color:white">&nbsp;Login&nbsp;</h6>
-    </a></div><i class="fa fa-sign-in text-grey fa-xs " style="color:lightgray;" aria-hidden="true"></i>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ">
 
-    <ng-template #helloUser>
-            <a class="btn"style="text-decoration:none"><h6 style="color:white">&nbsp;{{username}}&nbsp;</h6></a>
-            <a class="btn" (click)=logout() style="text-decoration:none"><h6 style="color:white">&nbsp;logout&nbsp;</h6></a>
+            <li>&emsp;&nbsp;</li>
+            <!-- Search form -->
+        </ul>
+        <i class="fa fa-map-marker fa-lg city" style="color:tomato" aria-hidden="true"
+            data-controls-modal="#login-modal" data-backdrop="static" data-keyboard="false" data-toggle="modal"
+            data-target="#citymodal"></i>
+        <h6 style="color:white">&nbsp;{{city}}&emsp;&nbsp;</h6>
+        <ul class="navbar-nav ">
+            <li class="nav-item">
+                <form class="form-inline active-cyan-3 active-cyan-4 ">
+                    <div class="input-group md-form form-sm form-2 pl-0">
+                        <input class="form-control my-0 py-1 lime-border" type="text" placeholder="Search"
+                            aria-label="Search">
+                        <div class="input-group-append">
+                            <span class="input-group-text lime lighten-2" id="basic-text1"><i
+                                    class="fa fa-search text-grey" aria-hidden="true"></i></span>
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+
+    </div>
+    <div style=" text-align:center ">
+        <!-- Navbar content -->
+        <div style="display:inline-block"><a class="btn" href="#" style="color:white"><span
+                    class="fa fa-home text-grey fa-xs"></span> Home</a></div>
+        <div style="display:inline-block"><a class="btn" *ngIf="username=='noLoggedInUser', else helloUser"
+                data-toggle="modal" data-target="#LoginModal" style="text-decoration:none">
+                <h6 style="color:white">&nbsp;Login&nbsp;</h6>
+            </a></div><i class="fa fa-sign-in text-grey fa-xs " style="color:lightgray;" aria-hidden="true"></i>
+
+        <ng-template #helloUser>
+            <a class="btn" style="text-decoration:none">
+                <h6 style="color:white">&nbsp;{{username}}&nbsp;</h6>
+            </a>
+            <a class="btn" (click)=logout() style="text-decoration:none">
+                <h6 style="color:white">&nbsp;logout&nbsp;</h6>
+            </a>
         </ng-template>
 
-        <div  style="display:inline-block"><a routerLink="/register" style="text-decoration:none"><h6 *ngIf="username=='noLoggedInUser'" style="color:white">&nbsp;&emsp;signup&nbsp;</h6>
-        </a></div><i class="fa fa-user-plus text-grey fa-xs " style="color:lightgray;" aria-hidden="true"></i>
+        <div style="display:inline-block"><a routerLink="/register" style="text-decoration:none">
+                <h6 *ngIf="username=='noLoggedInUser'" style="color:white">&nbsp;&emsp;signup&nbsp;</h6>
+            </a></div><i class="fa fa-user-plus text-grey fa-xs " style="color:lightgray;" aria-hidden="true"></i>
 
-    <div style="display:inline-block"><a routerLink="/cartpage" style="text-decoration:none" ><h6 *ngIf="cart=='items', else hellocart" style="color:greenyellow">&nbsp;&emsp;cart&nbsp;</h6>
-    </a></div><i class="fa fa-cart-plus text-grey fa-xs " style="color:lightgray;" aria-hidden="true"></i>
-    <ng-template #hellocart>
-    <h6 style="color:white">&nbsp;&emsp;cart&nbsp;</h6>
-  </ng-template>
-   
-</div>
- </nav>
-      
+        <div style="display:inline-block"><a routerLink="/cartpage" style="text-decoration:none">
+                <h6 *ngIf="cart=='items', else hellocart" style="color:greenyellow">&nbsp;&emsp;cart&nbsp;</h6>
+            </a></div><i class="fa fa-cart-plus text-grey fa-xs " style="color:lightgray;" aria-hidden="true"></i>
+        <ng-template #hellocart>
+            <h6 style="color:white">&nbsp;&emsp;cart&nbsp;</h6>
+        </ng-template>
 
- <!--***********************************-->
+    </div>
+</nav>
+
+
+<!--***********************************-->
+
 <body>
     <div class="container">
         <div class="row">
@@ -70,9 +83,12 @@
                                 <a style=" margin-left: 20px; ">
                                     <img src=" " height="15 " width="15 ">ACCOUNT SETTING
                                 </a>
-                                <a [routerLink]="['/home/profile/']" class="nav-link" style=" margin-left: 30px;"> Profile Information</a>
-                                <a [routerLink]="['/home/address/']" class="nav-link" style=" margin-left: 30px;">Manage Address</a>
-                                <a [routerLink]="['/home/pancard/']" class="nav-link" style=" margin-left: 30px;">Pancard Information</a>
+                                <a [routerLink]="['/home/profile/']" class="nav-link" style=" margin-left: 30px;">
+                                    Profile Information</a>
+                                <a [routerLink]="['/home/address/']" class="nav-link" style=" margin-left: 30px;">Manage
+                                    Address</a>
+                                <a [routerLink]="['/home/pancard/']" class="nav-link"
+                                    style=" margin-left: 30px;">Pancard Information</a>
                                 <br>
                             </li>
                         </ul>
@@ -80,7 +96,8 @@
                         <ul class="nav nav-tabs">
                             <li class="nav-item active">
                                 <img src="" height="15 " width="15 " style=" margin-left: 15px;">MY ORDER
-                                <a [routerLink]="['/home/order/']" class="nav-link" style=" margin-left: 30px;"> Orders</a>
+                                <a [routerLink]="['/home/order/']" class="nav-link" style=" margin-left: 30px;">
+                                    Orders</a>
                                 <br>
                             </li>
                         </ul>
@@ -88,7 +105,8 @@
                         <ul class="nav nav-tabs">
                             <li class="nav-item active">
                                 <img src="" height="15 " width="15 " style=" margin-left: 15px;">PAYMENT
-                                <a [routerLink]="['/home/payment/']" class="nav-link" style=" margin-left: 30px;">Saved drafts</a>
+                                <a [routerLink]="['/home/payment/']" class="nav-link" style=" margin-left: 30px;">Saved
+                                    drafts</a>
                                 <br>
                             </li>
                         </ul>
@@ -96,7 +114,8 @@
                         <ul class="nav nav-tabs">
                             <li class="nav-item active">
                                 <img src="" height="15 " width="15 " style=" margin-left: 15px;">REWARDS
-                                <a [routerLink]="['/home/reward/']" class="nav-link" style=" margin-left: 30px;">Rewards</a>
+                                <a [routerLink]="['/home/reward/']" class="nav-link"
+                                    style=" margin-left: 30px;">Rewards</a>
                                 <br>
                             </li>
                         </ul>
@@ -104,7 +123,8 @@
                         <ul class="nav nav-tabs">
                             <li class="nav-item active">
                                 <img src="" height="15 " width="15 " style=" margin-left: 15px;">NOTIFICATION
-                                <a [routerLink]="['/home/notification/']" class="nav-link" style=" margin-left: 30px;">All Notification</a>
+                                <a [routerLink]="['/home/notification/']" class="nav-link"
+                                    style=" margin-left: 30px;">All Notification</a>
 
                             </li>
                         </ul>
@@ -118,7 +138,7 @@
             <div class="col-4">
 
                 <body id="card_body" style=" margin: 40px; ">
-                    <form [formGroup]='signupform'  (ngSubmit)="postData(signupform)">
+                    <form [formGroup]='signupform' (ngSubmit)="postData(signupform)">
                         <div class="card " style="width: 50rem; height: 40rem;">
                             <br>
                             <div class="row " style=" margin-left: 40px; ">
@@ -135,7 +155,8 @@
                                 <div class="form-row">
 
                                     <div class="col">
-                                        <input type="text" id="name" class="form-control" readonly formControlName='name' disabled />
+                                        <input type="text" id="name" class="form-control" readonly
+                                            formControlName='name' disabled />
                                     </div>
 
                                     <!-- [value]='name' -->
@@ -156,7 +177,8 @@
                                         <!-- formControlName="gender" -->
 
                                         <br>
-                                        <input type="text" id="gender" class="form-control" readonly formControlName='name' disabled />
+                                        <input type="text" id="gender" class="form-control" readonly
+                                            formControlName='name' disabled />
                                     </div>
                                 </div>
                             </div>
@@ -170,7 +192,8 @@
                                             <h3>Contact Number</h3>
                                         </div>
                                         <br>
-                                        <input type="text" id="contact" style=" margin-left: 40px; " class="form-control" formControlName="number" />
+                                        <input type="text" id="contact" style=" margin-left: 40px; "
+                                            class="form-control" formControlName="number" />
 
 
                                     </div>
@@ -186,7 +209,8 @@
                                             <h3>Email Address</h3>
                                         </div>
 
-                                        <input type="text" id="mail" style=" margin-left: 40px; " class="form-control" formControlName="email" readonly />
+                                        <input type="text" id="mail" style=" margin-left: 40px; " class="form-control"
+                                            formControlName="email" readonly />
 
 
                                     </div>
@@ -196,7 +220,8 @@
 
                             <div class="row " style=" margin-left: 50px; ">
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-success btn-lg btn-block" [disabled]='!signupform.valid'>save</button>
+                                    <button type="submit" class="btn btn-success btn-lg btn-block"
+                                        [disabled]='!signupform.valid'>save</button>
                                 </div>
                             </div>
                         </div>

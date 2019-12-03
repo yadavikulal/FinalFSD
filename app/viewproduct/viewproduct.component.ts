@@ -12,7 +12,6 @@ export class ViewproductComponent implements OnInit {
 city:any;
 List:any;
 List2:any;
-pid:any;
 myFullresImage:any;
 myThumbnail:any;
 cid:string; 
@@ -20,6 +19,7 @@ urlnew:string;
 cart:string;
 username:string;
 cartlist:any;
+pid = [];
 
   constructor(private router:Router,private activatedRoute:ActivatedRoute) {
     this.activatedRoute.params.subscribe(params=>{ this.pid=params['pid'], this.city=params['city']});
@@ -42,9 +42,9 @@ cartlist:any;
     let url= "http://b8java18.iiht.tech:3000/showproductbyid/"+ this.pid;
       fetch(url,{
         method:"GET",
-        // headers:{
-        //   "content-type":"application/json"
-        // }
+       headers:{
+          "content-type":"application/json"
+         }
       })
       .then(res => res.json())
       .then(data=> 
@@ -101,6 +101,19 @@ cartlist:any;
 
   addtocart(pid:any){
     console.log("bought the product",pid);
+
+
+    
+
+    let products = [];
+    if(localStorage.getItem('products')){
+        products = JSON.parse(localStorage.getItem('products'));
+    }
+    products.push({'productId' : pid});
+    localStorage.setItem('products', JSON.stringify(products));
+
+
+
     this.cid=localStorage.getItem('id');
     let buy="yes";
     for(let i in this.cartlist){

@@ -26,7 +26,9 @@
             <div class="card text-center mb-3 shadow-lg  bg-white rounded" style="width: 20rem; display:inline-block; background-color: turquoise">
                     <div class="card-body">
                       <div style="display: inline-block" >
-                            <p class="card-text"><button (click)="portal()" type="submit" style="width:250px" class="btn btn-warning" id ="paybtn" disabled>Go to Payment Portal</button></p>
+                            <p class="card-text">
+                             
+                              <button (click)="portal()" type="submit" style="width:250px" class="btn btn-warning" id ="paybtn" disabled>Go to Payment Portal</button></p>
                             <div class="card-text"  *ngIf="active=='active'; else inactive"><button data-toggle="modal" data-target="#walletmodal" style="width:250px" class="btn btn-warning" id ="walletbtn" disabled>Pay by Rentastic Wallet</button></div>
                             <ng-template #inactive>
                                 <button data-toggle="modal" data-target="#inactivemodal" style="width:250px" class="btn btn-warning" id ="walletbtn" disabled>Pay by Rentastic Wallet</button>

@@ -10,85 +10,78 @@
         </div>
       </div>
       <div class="col-2">Quantity</div>
-      <div class="col-1">Price ₹</div>
-      <div class="col-4">Delivery Address</div>
-      <div class="col-1">Sub-Total</div>
+      <div class="col-2">Price ₹</div>
+      <div class="col-2">Delivery Address</div>
+      <div class="col-2">Sub-Total</div>
     </div>
   </div>
 </div>
 <!--CART CARD STARTS-->
-<div *ngFor="let object of List">
-  
-    <div class="card container shadow-lg bg-white rounded" style="border-radius:10px;">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-4" style="border-right: 2px solid lightgray">
-            <div class="row">
-              <div class="col-4">
-                <img class="btn" src={{object.productimage}} alt="" style="width:120px"></div>
 
-              <div class="col-8 btn">
-                <h5>{{object.productname}}</h5>
-                <p>{{object.productsubcategory}}</p>
-                <span class="fa fa-tag" style="color:royalblue">
-                  <h6>{{object.rentersname}}</h6>
-                </span>
+  <div *ngFor="let object3 of List4">
+    <div *ngFor="let object2 of object3">
+      <div class="card container shadow-lg bg-white rounded" style="border-radius:10px;">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-4" style="border-right: 2px solid lightgray">
+              <div class="row">
+                <div class="col-4">
+                  <img class="btn" src={{object2.productimage}} alt="" style="width:120px">
+                </div>
+
+                <div class="col-7 btn">
+                  <h5>{{object2.productname}}</h5>
+                  <p>{{object2.productsubcategory}}</p>
+                  
+                </div>
+
               </div>
+              <div class="row">
+                <div class="col-4">
+                  <p class="fa fa-star" style="color:gold"></p>
+                  <p class="fa fa-star" style="color:gold"></p>
+                  <p class="fa fa-star" style="color:gold"></p>
+                  <p class="fa fa-star" style="color:gold"></p>
+                </div>
 
-            </div>
-            <div class="row">
-              <div class="col-4">
-                <p class="fa fa-star" style="color:gold"></p>
-                <p class="fa fa-star" style="color:gold"></p>
-                <p class="fa fa-star" style="color:gold"></p>
-                <p class="fa fa-star" style="color:gold"></p>
+                <div class="col-8" style="text-align:right;">
+                  <span (click)="deleteitem(object2.productid)" class="fa fa-trash btn" style="color:gray"></span>
+                </div>
               </div>
-
-              <div class="col-8" style="text-align:right;">
-                <span (click)="deleteitem(object.productid)" class="fa fa-trash btn" style="color:gray"></span>
-              </div>
             </div>
-          </div>
 
-          <div class="col-2 container" style="background-color:white; border-right: 1px solid lightgray">
-            <span>Quantity<br></span>
-            <span class="fa fa-minus btn" (click)="minus(object.productid)"></span> <input disabled
-              id="input{{object.productid}}" value="1" type="text" style="width:35px; height:25px; "> <span
-              class="fa fa-plus btn" (click)="plus(object.productid)"></span>
-            <span><br><br>Time Period<br></span>
-            <span class="fa fa-minus btn" (click)="timeminus(object.productid)"></span> <input disabled
-              id="period{{object.productid}}" value="1" type="text" style="width:35px; height:25px; "> <span
-              class="fa fa-plus btn" (click)="timeplus(object.productid)"></span>
+            <div class="col-2 container" style="background-color:white; border-right: 1px solid lightgray">
+              <span>Quantity<br></span>
+              <span class="fa fa-minus btn" (click)="minus(object2.productid)"></span> <input disabled
+                id="input{{object2.productid}}" value="1" type="text" style="width:35px; height:25px; "> <span
+                class="fa fa-plus btn" (click)="plus(object2.productid)"></span>
+              <span><br><br>Time Period<br></span>
+              <span class="fa fa-minus btn" (click)="timeminus(object2.productid)"></span> <input disabled
+                id="period{{object2.productid}}" value="1" type="text" style="width:35px; height:25px; "> <span
+                class="fa fa-plus btn" (click)="timeplus(object2.productid)"></span>
 
 
-            <div style="width:150px;padding-top:31px">
-              <select class="form-control" id="promocode" name="promo code">
-                <option value="">apply coupon</option>
-                <option>FIRSTRENT</option>
-                <option>RENT50</option>
-                <option>RENTFLY</option>
-                <option>RENT10</option>
-              </select>
+              
             </div>
-          </div>
-          <div class="col-1 " style="background-color:white;border-right: 2px solid lightgray">
-            <span id="sign" style="font-weight: bolder">₹</span><span id="price{{object.productid}}"
-              style="font-weight: bolder">{{object.productprice}}</span>/month
-          </div>
-          <div class="col-4" style="border-right: 2px solid lightgray">
-            <span class="fa fa-check btn"></span>
-            <h5>{{address}}</h5>
-            <h6 style="font-style: italic;color:green">Delivery in 2 days</h6>
-          </div>
-          <div class="col-1 " style="background-color:white;">
-            <span id="sign2" style="font-weight: bolder">₹</span><span id="subtotal{{object.productid}}"
-              style="font-weight: bolder">{{object.productprice }}</span>
+            <div class="col-2 " style="background-color:white;border-right: 2px solid lightgray">
+              <span id="sign" style="font-weight: bolder">₹</span><span id="price{{object2.productid}}"
+                style="font-weight: bolder">{{object2.productprice}}</span>/month
+            </div>
+            <div class="col-2" style="border-right: 2px solid lightgray">
+              <span class="fa fa-check btn"></span>
+              <h5>{{address}}</h5>
+              <h6 style="font-style: italic;color:green">Delivery in 2 days</h6>
+            </div>
+            <div class="col-2 " style="background-color:white;">
+              <span id="sign2" style="font-weight: bolder">₹</span><span id="subtotal{{object2.productid}}"
+                style="font-weight: bolder">{{object2.productprice }}</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-</div>
 <!--CART CARD ENDS-->
 
 

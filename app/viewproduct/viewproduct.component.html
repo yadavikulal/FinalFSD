@@ -92,7 +92,7 @@
           <span *ngIf="username=='noLoggedInUser', else helloUser"><a data-toggle="modal" data-target="#LoginModal"
               class="btn btn-success fa fa-cart-plus fa-lg search" style="border-radius:50%"></a></span>
           <ng-template #helloUser>
-            <a class="btn" (click)=addtocart(object.productid) class="btn btn-success fa fa-cart-plus fa-lg search"
+            <a class="btn" (click)=addtocart(object2.productid) class="btn btn-success fa fa-cart-plus fa-lg search"
               style="border-radius:50%" style="text-decoration:none"></a>
           </ng-template>
         </div>

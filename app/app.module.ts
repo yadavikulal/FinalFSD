@@ -20,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { Advertise1Component } from './advertise1/advertise1.component';
 import { Advertise2Component } from './advertise2/advertise2.component';
 import { DetailsComponent } from './details/details.component';
+import { PaymentpayComponent } from './paymentpay/paymentpay.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { DetailsComponent } from './details/details.component';
    ForgotpasswordComponent,
    Advertise1Component,
    Advertise2Component,
-   DetailsComponent
+   DetailsComponent,
+   PaymentpayComponent
   ],
   imports: [
     BrowserModule,

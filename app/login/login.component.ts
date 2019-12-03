@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router, Route } from '@angular/router';
 import { InteractionService } from '../interaction.service';
@@ -51,6 +52,8 @@ export class LoginComponent implements OnInit {
             this.router.navigate([''])
           }
           else {  //incase creadentials are valid 
+            alert("Successfully Logined!")
+            this.router.navigate(['']);
             console.log(data);
 
             localStorage.setItem('token', data)
@@ -90,3 +93,12 @@ interface accountInfo {
   customerwallet: any,
   id: any,
 }
+
+
+
+
+
+
+
+
+
