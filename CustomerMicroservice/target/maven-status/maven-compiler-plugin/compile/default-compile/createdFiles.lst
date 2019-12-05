@@ -1,0 +1,13 @@
+com\example\demo\entity\MyCart.class
+com\example\demo\service\ProductService.class
+com\example\demo\repository\TransactionRepository.class
+com\example\demo\controller\ProductController.class
+com\example\demo\CustomerMicroserviceApplication.class
+com\example\demo\entity\Customer.class
+com\example\demo\entity\Transaction.class
+com\example\demo\repository\CustomerRepository.class
+com\example\demo\repository\ProductRepository.class
+com\example\demo\entity\Order.class
+com\example\demo\repository\MyCartRepository.class
+com\example\demo\entity\Product.class
+com\example\demo\repository\OrderRepository.class
